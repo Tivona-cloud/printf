@@ -5,12 +5,11 @@
  * handles_write_char - Prints a string
  * @c: char types.
  * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags.
- * @width: get width.
+ * @flags:  Calculates active flags
+ * @width: get width
  * @precision: precision specifier
  * @size: Size specifier
- *
- * Return: Number of chars printed.
+ * Return: Number of chars printed
  */
 int handles_write_char(char c, char buffer[],
 	int flags, int width, int precision, int size)
@@ -45,6 +44,7 @@ int handles_write_char(char c, char buffer[],
 }
 
 /**
+<<<<<<< HEAD:listeners_handlers.c
  * write_number - Prints a string
  * @is_negative: Lista of arguments
  * @ind: char types.
@@ -55,7 +55,18 @@ int handles_write_char(char c, char buffer[],
  * @size: Size specifier
  *
  * Return: Number of character printed.
+=======
+ * print_binary - prints unsigned number
+ * @types: lists arguments
+ * @buffer: buffer array to handle print
+ * @flags: to calculates active flags
+ * @width: to get width.
+ * @precision: precision specification
+ * @size: specifies size
+ * Return: numbers chars printed.
+>>>>>>> f1d696f3793b148c59c871b12396739729d8c23c:write_handlers.c
  */
+
 int write_number(int is_negative, int ind, char buffer[],
 	int flags, int width, int precision, int size)
 {
@@ -87,8 +98,7 @@ int write_number(int is_negative, int ind, char buffer[],
  * @length: Number length
  * @padd: Pading char
  * @extra_c: Extra char
- *
- * Return: Number of printed chars.
+ * Return: number of printed chars
  */
 int write_number(int ind, char buffer[],
 	int flags, int width, int prec,
@@ -133,9 +143,9 @@ int write_number(int ind, char buffer[],
 	}
 	if (extra_c)
 		buffer[--ind] = extra_c;
-	return (write(1, &buffer[ind], length));
-}
+	return
 
+<<<<<<< HEAD:listeners_handlers.c
 /**
  * write_unsigned - Writes an unsigned number
  * @is_negative: Number indicating if the num is negative
@@ -154,6 +164,13 @@ int write_unsigned(int is_negative, int ind,
 {
 
 	int length = BUFF_SIZE - ind - 1, index = 0;
+=======
+int write_unsgnd(int is_negative, int ind,
+	char buffer[],
+	int flags, int width, int precision, int size)
+{
+	int length = BUFF_SIZE - ind - 1, i = 0;
+>>>>>>> f1d696f3793b148c59c871b12396739729d8c23c:write_handlers.c
 	char padd = ' ';
 
 	UNUSED(is_negative);
@@ -195,6 +212,7 @@ int write_unsigned(int is_negative, int ind,
 }
 
 /**
+<<<<<<< HEAD:listeners_handlers.c
  * _pointer - Write a memory address
  * @buffer: Arrays of chars
  * @ind: Index at which the number starts in the buffer
@@ -208,6 +226,21 @@ int write_unsigned(int is_negative, int ind,
  * Return: Number of written character.
  */
 int _pointer(char buffer[], int ind, int length,
+=======
+ * write_pointer - writes memory address
+ * @buffer: array of char
+ * @ind: index the number starts in the buffer
+ * @length: length of the number
+ * @width: width specifier
+ * @flags: flag specifier
+ * @padd: char representing padding
+ * @extra_c: char representing extra char
+ * @padd_start: index padding starts
+ * Return: numbers written char
+ */
+
+int write_pointer(char buffer[], int ind, int length,
+>>>>>>> f1d696f3793b148c59c871b12396739729d8c23c:write_handlers.c
 	int width, int flags, char padd, char extra_c, int padd_start)
 {
 	int index;

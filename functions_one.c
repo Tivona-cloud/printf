@@ -45,7 +45,12 @@ int print_unsigned(va_list types, char buffer[],
  * @size: Size specifier
  * Return: Number of chars printed
  */
+<<<<<<< HEAD:functions_one.c
 int _octal(va_list types, char buffer[],
+=======
+
+int print_octal(va_list types, char buffer[],
+>>>>>>> f1d696f3793b148c59c871b12396739729d8c23c:functions1.c
 	int flags, int width, int precision, int size)
 {
 
@@ -93,6 +98,7 @@ int _hexadecimal(va_list types, char buffer[],
 		flags, 'x', width, precision, size));
 }
 
+<<<<<<< HEAD:functions_one.c
 
 /**
  * _hexa_upper - Prints an unsigned number in upper hexadecimal notation
@@ -103,6 +109,17 @@ int _hexadecimal(va_list types, char buffer[],
  * @precision: Precision specification
  * @size: Size specifier
  * Return: Number of chars printed
+=======
+/**
+ * print_hexa_upper - prints unsigned number in upper hexadecimal notation
+ * @types: lists of arguments
+ * @buffer: buffer array handles print
+ * @flags:  calculates flags
+ * @width: to get width
+ * @precision: precision specifications
+ * @size: size specifies
+ * Return: numbers  chars printed
+>>>>>>> f1d696f3793b148c59c871b12396739729d8c23c:functions1.c
  */
 int _hexa_upper(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -111,6 +128,7 @@ int _hexa_upper(va_list types, char buffer[],
 		flags, 'X', width, precision, size));
 }
 
+<<<<<<< HEAD:functions_one.c
 
 /**
  * _hexa - Prints a hexadecimal number in lower or upper
@@ -124,6 +142,20 @@ int _hexa_upper(va_list types, char buffer[],
  * @size: Size specifier
  * @size: Size specification
  * Return: Number of chars printed
+=======
+/**
+ * print_hexa - prints hexadecimal number in lower or upper
+ * @types: lists arguments
+ * @map_to: array of values to map numbers
+ * @buffer: buffer array handles print
+ * @flags: calculate flags
+ * @flag_ch: calculate flags
+ * @width: to get width
+ * @precision: precision specifications
+ * @size: size specifier
+ * @size:size specifications
+ * Return: Number chars printed
+>>>>>>> f1d696f3793b148c59c871b12396739729d8c23c:functions1.c
  */
 int _hexa(va_list types, char map_to[], char buffer[],
 	int flags, char flag_ch, int width, int precision, int size)

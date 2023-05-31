@@ -1,12 +1,22 @@
 #include "main.h"
 
 /**
+<<<<<<< HEAD:what_flags.c
  * what_flags - Calculates active flags
  * @format: Formatted string in which to print the arguments
  * @i: take a parameter.
  * Return: Flags:
  */
 int what_flags(const char *format, int *i)
+=======
+ * get_flags - Calculates flags
+ * @format: format string to print arguments
+ * @i: takes parameter
+ * Return: Flags
+ */
+
+int get_flags(const char *format, int *i)
+>>>>>>> f1d696f3793b148c59c871b12396739729d8c23c:get_flags.c
 {
 
 	int j, curr_i;
