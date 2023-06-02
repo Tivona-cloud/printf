@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * print_unsigned - Prints an unsigned number
+ * _unsigned - Prints an unsigned number
  * @types: List a of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -12,7 +12,7 @@
  * Return: Number of chars printed.
  */
 
-int print_unsigned(va_list types, char buffer[],
+int _unsigned(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
@@ -37,7 +37,7 @@ int print_unsigned(va_list types, char buffer[],
 }
 
 /**
- * print_octal - Prints an unsigned number in octal notation
+ * _octal - Prints an unsigned number in octal notation
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -47,7 +47,7 @@ int print_unsigned(va_list types, char buffer[],
  * Return: Number of chars printed
  */
 
-int print_octal(va_list types, char buffer[],
+int _octal(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 
@@ -79,7 +79,7 @@ int print_octal(va_list types, char buffer[],
 }
 
 /**
- * print_hexadecimal - Prints an unsigned number in hexadecimal notation
+ * _hexadecimal - Prints an unsigned number in hexadecimal notation
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -88,15 +88,15 @@ int print_octal(va_list types, char buffer[],
  * @size: Size specifier
  * Return: Number of chars printed
  */
-int print_hexadecimal(va_list types, char buffer[],
+int _hexadecimal(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	return (print_hexa(types, "0123456789abcdef", buffer,
+	return (_hexa(types, "0123456789abcdef", buffer,
 		flags, 'x', width, precision, size));
 }
 
 /**
- * print_hexa_upper - prints unsigned number in upper hexadecimal notation
+ * _hexa_upper - prints unsigned number in upper hexadecimal notation
  * @types: lists of arguments
  * @buffer: buffer array handles print
  * @flags:  calculates flags
@@ -106,14 +106,15 @@ int print_hexadecimal(va_list types, char buffer[],
  * Return: numbers  chars printed
  */
 
-int print_hexa_upper(va_list types, char buffer[],
+int _hexa_upper(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	return (print_hexa(types, "0123456789ABCDEF", buffer, flags, 'X', width, precision, size));
+	return (_hexa(types, "0123456789ABCDEF", buffer, flags, 'X',
+				width, precision, size));
 }
 
 /**
- * print_hexa - prints hexadecimal number in lower or upper
+ * _hexa - prints hexadecimal number in lower or upper
  * @types: lists arguments
  * @map_to: array of values to map numbers
  * @buffer: buffer array handles print
@@ -126,7 +127,7 @@ int print_hexa_upper(va_list types, char buffer[],
  * Return: Number chars printed
 */
 
-int print_hexa(va_list types, char map_to[], char buffer[],
+int _hexa(va_list types, char map_to[], char buffer[],
 	int flags, char flag_ch, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;

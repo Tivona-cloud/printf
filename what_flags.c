@@ -2,13 +2,13 @@
 #include "main.h"
 
 /**
- * get_flags - Calculates flags
+ * what_flags - Calculates flags
  * @format: format string to print arguments
  * @i: takes parameter
  * Return: Flags
  */
 
-int get_flags(const char *format, int *i)
+int what_flags(const char *format, int *i)
 {
 	/* - + 0 # ' ' */
 	/* 1 2 4 8  16 */

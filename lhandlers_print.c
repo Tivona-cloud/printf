@@ -18,11 +18,11 @@ int handle_print(const char *formt, int *ind, va_list list, char buffer[],
 {
 	int i, unknow_len = 0, printed_chars = -1;
 	formt_t formt_types[] = {
-		{'c', print_char}, {'s', print_string}, {'%', print_percent},
-		{'i', print_int}, {'d', print_int}, {'b', print_binary},
-		{'u', print_unsigned},  {'o', print_octal}, {'x', print_hexadecimal},
-		{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
-		{'r', get_reverse}, {'R', prints_rot13}, {'\0', NULL}
+		{'c', _char}, {'s', _string}, {'%', _percent},
+		{'i', _int}, {'d', _int}, {'b', _binary},
+		{'u', _unsigned},  {'o', _octal}, {'x', _hexadecimal},
+		{'X', _hexa_upper}, {'p', _pointer}, {'S', _non_printable},
+		{'r', _reverser}, {'R', print_rot13}, {'\0', NULL}
 	};
 	for (i = 0; formt_types[i].formt != '\0'; i++)
 		if (formt[*ind] == formt_types[i].formt)

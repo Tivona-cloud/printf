@@ -2,8 +2,7 @@
 #include "main.h"
 
 /**
-<<<<<<< HEAD:what_precisions.c
- * what_precisions - Calculates the precision for printing
+ * what_precision - Calculates the precision for printing
  * @format: Formatted string in which to print the arguments
  * @i: List of arguments to be printed.
  * @list: list of arguments.
@@ -11,7 +10,7 @@
  * Return: what_Precision.
  */
 
-int get_precision(const char *format, int *i, va_list list)
+int what_precision(const char *format, int *i, va_list list)
 {
 	int curr_i = *i + 1;
 	int precision = -1;

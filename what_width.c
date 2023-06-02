@@ -2,14 +2,14 @@
 #include "main.h"
 
 /**
- * get_width - calculates precision of printing
+ * what_width - calculates precision of printing
  * @format: formatted string to print arguments
  * @i: list arguments to printed
  * @list: lists arguments
  * Return: precision
  */
 
-int get_width(const char *format, int *i, va_list list)
+int what_width(const char *format, int *i, va_list list)
 {
 	int curr_i;
 	int width = 0;
