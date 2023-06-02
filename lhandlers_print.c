@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * lhandles_print - Prints an argument based on its type
+ * handle_print - Prints an argument based on its type
  * @formt: Formatted string in which to print the arguments.
  * @list: List of arguments to be printed.
  * @ind: ind.
@@ -13,16 +13,16 @@
  * @size: Size specifier
  * Return: 1 or 2;
  */
-int lhandles_print(const char *formt, int *ind, va_list list, char buffer[],
+int handle_print(const char *formt, int *ind, va_list list, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int i, unknow_len = 0, printed_chars = -1;
-	format_t formt_types[] = {
-		{'c', printed_chars}, {'s', _string}, {'%', _percent},
-		{'i', _int}, {'d', _int}, {'b', _binary},
-		{'u', print_unsigned},  {'o', _octal}, {'x', _hexadecimal},
-		{'X', _hexa_upper}, {'p', prints_point}, {'S', cant_print},
-		{'r', reverser}, {'R', prints_rot13}, {'\0', NULL}
+	formt_t formt_types[] = {
+		{'c', print_char}, {'s', print_string}, {'%', print_percent},
+		{'i', print_int}, {'d', print_int}, {'b', print_binary},
+		{'u', print_unsigned},  {'o', print_octal}, {'x', print_hexadecimal},
+		{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
+		{'r', get_reverse}, {'R', prints_rot13}, {'\0', NULL}
 	};
 	for (i = 0; formt_types[i].formt != '\0'; i++)
 		if (formt[*ind] == formt_types[i].formt)

@@ -10,17 +10,8 @@
  *
  * Return: what_Precision.
  */
-int what_precisions(const char *format, int *i, va_list list)
-=======
- * get_precision - calculates precision of printing
- * @format: formatted string to print arguments
- * @i: list arguments to printed
- * @list: lists arguments
- * Return: precision
- */
 
 int get_precision(const char *format, int *i, va_list list)
->>>>>>> f1d696f3793b148c59c871b12396739729d8c23c:get_precision.c
 {
 	int curr_i = *i + 1;
 	int precision = -1;
@@ -32,7 +23,7 @@ int get_precision(const char *format, int *i, va_list list)
 
 	for (curr_i += 1; format[curr_i] != '\0'; curr_i++)
 	{
-		if (confirm_digit(format[curr_i]))
+		if (is_digit(format[curr_i]))
 		{
 			precision *= 10;
 			precision += format[curr_i] - '0';

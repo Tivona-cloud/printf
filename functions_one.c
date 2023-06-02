@@ -11,13 +11,14 @@
  * @size: Size specifier
  * Return: Number of chars printed.
  */
+
 int print_unsigned(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
 	unsigned long int num = va_arg(types, unsigned long int);
 
-	num = convert_to_unsigned(num, size);
+	num = convert_size_unsgnd(num, size);
 
 	if (num == 0)
 		buffer[i--] = '0';
@@ -28,15 +29,15 @@ int print_unsigned(va_list types, char buffer[],
 	{
 		buffer[i--] = (num % 10) + '0';
 		num /= 10;
-	}i
+	}
 
 	i++;
 
-	return (print_unsigned(0, i, buffer, flags, width, precision, size));
+	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
 
 /**
- * _octal - Prints an unsigned number in octal notation
+ * print_octal - Prints an unsigned number in octal notation
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -45,12 +46,8 @@ int print_unsigned(va_list types, char buffer[],
  * @size: Size specifier
  * Return: Number of chars printed
  */
-<<<<<<< HEAD:functions_one.c
-int _octal(va_list types, char buffer[],
-=======
 
 int print_octal(va_list types, char buffer[],
->>>>>>> f1d696f3793b148c59c871b12396739729d8c23c:functions1.c
 	int flags, int width, int precision, int size)
 {
 
@@ -60,7 +57,7 @@ int print_octal(va_list types, char buffer[],
 
 	UNUSED(width);
 
-	num = convert_to_unsigned(num, size);
+	num = convert_size_unsgnd(num, size);
 
 	if (num == 0)
 		buffer[i--] = '0';
@@ -78,11 +75,11 @@ int print_octal(va_list types, char buffer[],
 
 	i++;
 
-	return (print_unsigned(0, i, buffer, flags, width, precision, size));
+	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
 
 /**
- * _hexadecimal - Prints an unsigned number in hexadecimal notation
+ * print_hexadecimal - Prints an unsigned number in hexadecimal notation
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -91,25 +88,13 @@ int print_octal(va_list types, char buffer[],
  * @size: Size specifier
  * Return: Number of chars printed
  */
-int _hexadecimal(va_list types, char buffer[],
+int print_hexadecimal(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	return (_hexa(types, "0123456789abcdef", buffer,
+	return (print_hexa(types, "0123456789abcdef", buffer,
 		flags, 'x', width, precision, size));
 }
 
-<<<<<<< HEAD:functions_one.c
-
-/**
- * _hexa_upper - Prints an unsigned number in upper hexadecimal notation
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed
-=======
 /**
  * print_hexa_upper - prints unsigned number in upper hexadecimal notation
  * @types: lists of arguments
@@ -119,30 +104,14 @@ int _hexadecimal(va_list types, char buffer[],
  * @precision: precision specifications
  * @size: size specifies
  * Return: numbers  chars printed
->>>>>>> f1d696f3793b148c59c871b12396739729d8c23c:functions1.c
  */
-int _hexa_upper(va_list types, char buffer[],
+
+int print_hexa_upper(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	return (_hexa(types, "0123456789ABCDEF", buffer,
-		flags, 'X', width, precision, size));
+	return (print_hexa(types, "0123456789ABCDEF", buffer, flags, 'X', width, precision, size));
 }
 
-<<<<<<< HEAD:functions_one.c
-
-/**
- * _hexa - Prints a hexadecimal number in lower or upper
- * @types: Lista of arguments
- * @map_to: Array of values to map the number to
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @flag_ch: Calculates active flags
- * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * @size: Size specification
- * Return: Number of chars printed
-=======
 /**
  * print_hexa - prints hexadecimal number in lower or upper
  * @types: lists arguments
@@ -155,9 +124,9 @@ int _hexa_upper(va_list types, char buffer[],
  * @size: size specifier
  * @size:size specifications
  * Return: Number chars printed
->>>>>>> f1d696f3793b148c59c871b12396739729d8c23c:functions1.c
- */
-int _hexa(va_list types, char map_to[], char buffer[],
+*/
+
+int print_hexa(va_list types, char map_to[], char buffer[],
 	int flags, char flag_ch, int width, int precision, int size)
 {
 	int i = BUFF_SIZE - 2;
@@ -166,7 +135,7 @@ int _hexa(va_list types, char map_to[], char buffer[],
 
 	UNUSED(width);
 
-	num = convert_to_unsgned(num, size);
+	num = convert_size_unsgnd(num, size);
 
 	if (num == 0)
 		buffer[i--] = '0';
@@ -187,5 +156,5 @@ int _hexa(va_list types, char map_to[], char buffer[],
 
 	i++;
 
-	return (print_unsigned(0, i, buffer, flags, width, precision, size));
+	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
